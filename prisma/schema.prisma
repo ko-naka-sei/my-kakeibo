@@ -11,6 +11,6 @@ model Expense {
   id        Int      @id @default(autoincrement())
   amount    Int
   category  String   @default("未分類")
-  type      String   // income | expense
+  type      String
   createdAt DateTime @default(now())
 }
