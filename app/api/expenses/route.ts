@@ -1,4 +1,4 @@
-//app/api/expenses/route.ts
+//app/api/Expenses/route.ts
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 
@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 // GET
 export async function GET() {
   try {
-    const items = await prisma.expense.findMany({
+    const items = await prisma.Expense.findMany({
       orderBy: { createdAt: 'desc' },
     });
     return NextResponse.json(items);
@@ -29,7 +29,7 @@ export async function POST(req: Request) {
       0, 0, 0
     ));
 
-    const newItem = await prisma.expense.create({
+    const newItem = await prisma.Expense.create({
       data: {
         amount: Number(amount),
         category: category || '未分類',
@@ -50,7 +50,7 @@ export async function DELETE(req: Request) {
   try {
     const { id } = await req.json();
 
-    await prisma.expense.delete({ where: { id: Number(id) } });
+    await prisma.Expense.delete({ where: { id: Number(id) } });
 
     return NextResponse.json({ success: true });
   } catch (err) {

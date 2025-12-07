@@ -3,14 +3,18 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
-model Expense {
+model expense {
   id        Int      @id @default(autoincrement())
   amount    Int
-  category  String   @default("未分類")
-  type      String
+  category  String
+  type      String   // 'income' または 'expense'
+  user_id   String   // ユーザーID
   createdAt DateTime @default(now())
+
+  // ↓ 重要：DB上のテーブル名を小文字の 'expense' に強制する
+  @@map("expense")
 }
