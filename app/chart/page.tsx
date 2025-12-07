@@ -81,7 +81,7 @@ export default function ChartPage() {
 
   // 収入と支出に分ける
   const incomeData = monthlyData.filter(i => i.type === 'income');
-  const expenseData = monthlyData.filter(i => i.type === 'expense' || i.type === 'payment'); // type='expense'または互換性のため
+  const expenseData = monthlyData.filter(i => i.type === 'expense' ); // type='expense'または互換性のため
 
   // 集計実行
   const incomeAggregated = aggregateByCategory(incomeData);
