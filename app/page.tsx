@@ -24,7 +24,9 @@ export default function Page() {
   return (
     <div style={{ padding: 40, maxWidth: 400, margin: '50px auto', textAlign: 'center', border: '1px solid #ccc', borderRadius: 8 }}>
       <h1>家計簿アプリ</h1>
-      <p>ログインまたは新規登録してください</p>
+      <p>ログインまたは新規登録してください
+        確認メールを開いてもサーバとつながりませんが、無視して大丈夫です。
+      </p>
       
       {errorMsg && <p style={{ color: 'red', background:'#ffe6e6', padding:10 }}>{errorMsg}</p>}
       {successMsg && <p style={{ color: 'green', background:'#e6ffe6', padding:10 }}>{successMsg}</p>}
