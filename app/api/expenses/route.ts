@@ -40,7 +40,7 @@ export async function POST(req: Request) {
     const newItem = await prisma.expense.create({
       data: {
         amount: Number(amount),
-        category: category || '未分類',
+        category: category || '食費',
         type,
         createdAt: createdAtDate,
         user_id: USER_ID, // 必須項目なので固定値を設定
